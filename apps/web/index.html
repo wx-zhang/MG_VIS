@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" href="%BASE_URL%favicon-32x32.png?v=2" sizes="32x32" type="image/png" />
+    <link rel="icon" href="%BASE_URL%favicon-192x192.png?v=2" sizes="192x192" type="image/png" />
+    <link rel="shortcut icon" href="%BASE_URL%favicon.ico?v=2" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png?v=2" sizes="180x180" />
+    <title>TYR</title>
+    <script>
+      (function () {
+        try {
+          if (window.localStorage.getItem("tyr-theme-mode") === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+        } catch {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

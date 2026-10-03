@@ -1,0 +1,6 @@
+{
+  "installCommand": "pnpm install --frozen-lockfile --ignore-scripts",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [{ "source": "/((?!assets/|maps/|brand/|favicon|apple-touch-icon).*)", "destination": "/index.html" }]
+}

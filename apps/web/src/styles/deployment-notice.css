@@ -1,0 +1,9 @@
+.deployment-frame { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.deployment-frame:not(:has(> .deployment-notice)) { grid-template-rows: minmax(0, 1fr); }
+.deployment-content { min-height: 0; min-width: 0; overflow: hidden; contain: layout; }
+.deployment-content .auth-page, .deployment-content .auth-card.auth-login-card, .deployment-content .auth-split { min-height: var(--app-viewport-height, 100dvh); }
+.deployment-content .auth-form-panel { max-height: var(--app-viewport-height, 100dvh); }
+.deployment-notice { display: flex; align-items: flex-start; justify-content: center; gap: 10px; padding: 10px 20px; background: #edf6ff; color: #17436d; border-bottom: 1px solid #c5dbef; font-size: 13px; line-height: 1.5; }
+.deployment-notice svg { flex-shrink: 0; margin-top: 1px; }
+html.dark .deployment-notice { background: #122c42; color: #d3eaff; border-color: #2f526d; }
+@media (max-width: 600px) { .deployment-notice { padding: 9px 12px; font-size: 12px; } }

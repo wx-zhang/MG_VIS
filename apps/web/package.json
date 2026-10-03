@@ -1,0 +1,37 @@
+{
+  "name": "@tyr-ai/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5178",
+    "build": "tsc -p tsconfig.json && vite build",
+    "build:demo": "tsc -p tsconfig.json && vite build --mode demo",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "@tyr-ai/contracts": "workspace:*",
+    "@xyflow/react": "^12.11.0",
+    "lucide-react": "^0.561.0",
+    "maplibre-gl": "6.10.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.15.1",
+    "rehype-highlight": "^7.0.2",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/qrcode": "^1.5.6",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "^5.1.1",
+    "tailwindcss": "^4.1.14",
+    "vite": "^7.2.7"
+  }
+}

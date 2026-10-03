@@ -1,0 +1,11 @@
+[build]
+command = "corepack pnpm install --frozen-lockfile --ignore-scripts && corepack pnpm build"
+publish = "apps/web/dist"
+
+[build.environment]
+NODE_VERSION = "22.22.0"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

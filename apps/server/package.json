@@ -1,0 +1,24 @@
+{
+  "name": "@tyr-ai/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json --noEmit && node scripts/build.mjs",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@tyr-ai/contracts": "workspace:*",
+    "@tyr-ai/db": "workspace:*",
+    "@tyr-ai/governance": "workspace:*",
+    "@tyr-ai/safety": "workspace:*",
+    "better-sqlite3": "^12.9.0",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "zod": "^4.3.6",
+    "ws": "^8.20.0"
+  }
+}

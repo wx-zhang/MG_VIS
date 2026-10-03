@@ -1,0 +1,17 @@
+{
+  "name": "@tyr-ai/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@tyr-ai/contracts": "workspace:*",
+    "better-sqlite3": "^12.5.0"
+  }
+}

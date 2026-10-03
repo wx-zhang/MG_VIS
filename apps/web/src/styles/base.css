@@ -1,0 +1,244 @@
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --ink: #111827;
+  --paper: #f5f7fb;
+  --panel: #f8fafc;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --muted: #64748b;
+  --subtle: #eef2f7;
+  --border: #d8dee8;
+  --primary: #0f766e;
+  --primary-strong: #0b5f59;
+  --primary-soft: #e3f5f2;
+  --accent: #2563eb;
+  --accent-soft: #e8f0ff;
+  --cyan: #0ea5e9;
+  --green: #22c55e;
+  --violet: #8b5cf6;
+  --orange: #f59e0b;
+  --danger: #dc2626;
+  --gray: #94a3b8;
+  --line: 1px solid var(--border);
+  --radius: 6px;
+  --control-height: 32px;
+  --menu-item-height: 32px;
+  --status-button-height: 28px;
+  --control-gap: 6px;
+  --control-pad-x: 12px;
+  --control-font-size: 13px;
+  --control-font-weight: 500;
+  --control-strong-font-weight: 600;
+  --sidebar-font-size: 12px;
+  --sidebar-font-weight: 600;
+  --form-font-size: 14px;
+  --form-font-weight: 400;
+  --shadow: 0 1px 2px rgb(15 23 42 / 8%);
+  --shadow-raised: 0 10px 30px rgb(15 23 42 / 12%);
+  --app-viewport-height: 100dvh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+html.dark {
+  --ink: #e5eef8;
+  --paper: #08121f;
+  --panel: #0d1828;
+  --surface: #101b2d;
+  --surface-raised: #152235;
+  --muted: #8fa1ba;
+  --subtle: #17243a;
+  --border: #24344d;
+  --primary: #15b8a6;
+  --primary-strong: #5eead4;
+  --primary-soft: #0d332f;
+  --accent: #7aa7ff;
+  --accent-soft: #132646;
+  --shadow: 0 1px 2px rgb(0 0 0 / 28%);
+  --shadow-raised: 0 16px 34px rgb(0 0 0 / 34%);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, #root { height: var(--app-viewport-height, 100dvh); }
+body { height: var(--app-viewport-height, 100dvh); margin: 0; overflow: hidden; font-family: var(--font-sans); }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+code, pre, kbd, .command-box, .dm-status-text, .file-preview pre { font-family: var(--font-mono); }
+.tyr-logo, .tyr-mark { display: block; object-fit: contain; }
+.tyr-logo { width: auto; max-width: 100%; height: auto; }
+.tyr-mark { width: 100%; height: 100%; }
+html.dark .tyr-logo-adaptive, html.dark .tyr-mark-adaptive { filter: invert(1); }
+
+html.dark body,
+html.dark .shell,
+html.dark .main,
+html.dark .view,
+html.dark .topology-routing-view,
+html.dark .settings-page,
+html.dark .profile {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html.dark .side,
+html.dark .topbar,
+html.dark .settings-card,
+html.dark .modal,
+html.dark .topology-flow-card,
+html.dark .topology-inspector,
+html.dark .inspector-detail-head,
+html.dark .inspector-section-card,
+html.dark .topology-lane,
+html.dark .topology-computer-card,
+html.dark .connected-account,
+html.dark .invite-row,
+html.dark .danger-row {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+html.dark .sidebar-user-card,
+html.dark .server-switcher,
+html.dark .top-mobile-menu-button,
+html.dark .top-utility-dock,
+html.dark .top-utility-button,
+html.dark .top-approvals-button,
+html.dark .top-theme-toggle,
+html.dark .top-logout-button,
+html.dark .top-avatar-button,
+html.dark .top-account-menu,
+html.dark .inspector-stat-grid span,
+html.dark .inspector-grant-row,
+html.dark .topology-flow-node,
+html.dark .topology-flow-card .react-flow__controls-button,
+html.dark .topology-empty-panel,
+html.dark .member-empty {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+html.dark .top-utility-button.active { background: var(--primary-soft); color: var(--primary-strong); box-shadow: inset 0 0 0 1px rgb(21 184 166 / 24%); }
+html.dark .top-utility-badge, html.dark .top-approvals-button em { box-shadow: 0 0 0 2px var(--surface); }
+
+html.dark .topology-flow-card .react-flow {
+  background:
+    linear-gradient(90deg, rgb(78 94 122 / 28%) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(78 94 122 / 22%) 1px, transparent 1px),
+    var(--paper);
+  background-size: 42px 42px;
+}
+
+html.dark .topology-load-state {
+  background:
+    linear-gradient(90deg, rgb(78 94 122 / 20%) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(78 94 122 / 16%) 1px, transparent 1px),
+    var(--paper);
+  background-size: 42px 42px;
+}
+
+html.dark .topology-load-state-card { color: var(--ink); }
+html.dark .topology-load-state-icon { border-color: var(--border); background: var(--surface-raised); }
+html.dark .topology-tree-loading span { background: var(--border); }
+
+html.dark .topology-flow-node.shared-zone,
+html.dark .topology-tree-nested,
+html.dark .topology-tree-children {
+  border-color: var(--border);
+}
+
+html.dark .topology-flow-node.agent.has-live-work { border-color: #245264; background: linear-gradient(180deg, #111d2c 0%, #102532 100%); }
+html.dark .topology-live-work-strip { border-top-color: #294256; }
+html.dark .topology-live-work-row { color: #dbeafe; }
+html.dark .topology-live-work-row:hover, html.dark .topology-live-work-row:focus-visible { background: rgb(20 184 166 / 12%); color: #5eead4; }
+html.dark .topology-live-work-row small, html.dark .topology-live-work-more, html.dark .topology-live-work-summary small { color: #8fa1ba; }
+html.dark .topology-live-work-summary span { color: #5eead4; }
+html.dark .inspector-live-work-item { border-color: #2b4059; background: #111d2c; }
+html.dark .inspector-live-work-item.tone-attention { background: rgb(120 53 15 / 12%); }
+html.dark .inspector-live-work-item.tone-success { background: rgb(6 78 59 / 14%); }
+html.dark .inspector-live-work-item.tone-error { background: rgb(127 29 29 / 14%); }
+html.dark .inspector-live-work-item.selected { border-color: #14b8a6; }
+html.dark .inspector-live-work-item > b { color: var(--ink); }
+html.dark .inspector-live-work-item > p, html.dark .inspector-live-work-item-head small { color: var(--muted); }
+html.dark .inspector-live-work-detail { background: #0b1522; color: #cbd5e1; }
+
+html.dark .topology-context-menu {
+  background: #0f172a;
+  border-color: #24344d;
+  box-shadow: 0 20px 46px rgb(0 0 0 / 36%);
+}
+
+html.dark .topology-context-menu-button { color: #dbeafe; }
+html.dark .topology-context-menu-button svg { color: #8fa1ba; }
+html.dark .topology-context-menu-button:hover,
+html.dark .topology-context-menu-button:focus-visible {
+  background: rgb(20 184 166 / 12%);
+  color: #5eead4;
+}
+html.dark .topology-context-menu-button:hover svg,
+html.dark .topology-context-menu-button:focus-visible svg { color: #5eead4; }
+html.dark .topology-context-menu-button.separated::before { background: #24344d; }
+html.dark .topology-context-menu-button.danger { color: #fca5a5; }
+html.dark .topology-context-menu-button.danger svg { color: #f87171; }
+html.dark .topology-context-menu-button.danger:hover,
+html.dark .topology-context-menu-button.danger:focus-visible {
+  background: rgb(127 29 29 / 26%);
+  color: #fecaca;
+}
+
+html.dark .topology-tree-add-agent { color: #64748b; }
+html.dark .topology-tree-add-agent:hover { background: rgb(20 184 166 / 10%); color: #5eead4; }
+html.dark .top-approvals-button.has-approvals {
+  background: rgb(245 158 11 / 14%);
+  border-color: rgb(245 158 11 / 52%);
+  color: #fbbf24;
+}
+
+html.dark .topology-approval-chip {
+  background: transparent;
+  color: #fbbf24;
+}
+
+html.dark .topology-approval-chip:hover,
+html.dark .topology-approval-chip:focus-visible {
+  background: rgb(245 158 11 / 16%);
+  color: #fde68a;
+}
+
+html.dark .list-row:hover,
+html.dark .icon-btn:hover,
+html.dark .btn:hover {
+  background: #17243a;
+  border-color: #38506f;
+}
+
+html.dark .list-row.selected,
+html.dark .utility.selected {
+  background: #0d332f;
+  border-color: #17695f;
+  color: #79f2de;
+}
+
+html.dark .top-title h1,
+html.dark .topology-routing-head h1,
+html.dark .inspector-detail-head h2,
+html.dark .inspector-stat-grid b,
+html.dark .inspector-lines b,
+html.dark .sidebar-user-card,
+html.dark .topology-flow-node {
+  color: var(--ink);
+}
+
+html.dark .topology-routing-head p,
+html.dark .top-title p,
+html.dark .inspector-detail-head p,
+html.dark .inspector-note,
+html.dark .inspector-lines span,
+html.dark .topology-flow-copy small,
+html.dark .sidebar-user-card small {
+  color: var(--muted);
+}

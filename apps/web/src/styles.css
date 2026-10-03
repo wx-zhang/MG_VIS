@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Manrope:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+@import "./styles/base.css";
+@import "./styles/shell.css";
+@import "./styles/chat.css";
+@import "./styles/tasks.css";
+@import "./styles/workspace-sections.css";
+@import "./styles/settings.css";
+@import "./styles/workspace-spatial.css";
+@import "./styles/confirm-dialog.css";
+@import "./styles/api-feedback.css";
+@import "./styles/auth.css";
+@import "./styles/operator.css";
+@import "./styles/responsive.css";

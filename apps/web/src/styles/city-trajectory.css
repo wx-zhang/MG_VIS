@@ -1,0 +1,36 @@
+.city-trajectory-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; overflow: hidden; }
+.city-trajectory-player { position: absolute; right: 20px; bottom: 22px; z-index: 8; width: min(370px, calc(100% - 40px)); padding: 16px; border: 1px solid #bdd8de; border-radius: 16px; background: #fffffff5; box-shadow: 0 8px 30px #123c5420; color: #23495d; font-size: 12px; }
+.city-trajectory-heading, .city-trajectory-phase, .city-trajectory-actions { display: flex; align-items: center; gap: 10px; }
+.city-trajectory-heading strong { font-size: 17px; }
+.city-trajectory-heading span { padding: 3px 8px; border-radius: 12px; background: #e7f5f7; color: #227e91; }
+.city-trajectory-heading > button { margin-left: auto; border: 0; background: transparent; cursor: pointer; }
+.city-trajectory-phase { justify-content: space-between; margin-top: 14px; }
+.city-trajectory-phase span { color: #648292; font-variant-numeric: tabular-nums; }
+.city-trajectory-player input { width: 100%; margin: 12px 0; accent-color: #178eaa; cursor: pointer; }
+.city-trajectory-actions { gap: 6px; flex-wrap: wrap; }
+.city-trajectory-actions button, .city-trajectory-actions select { display: flex; align-items: center; justify-content: center; gap: 5px; background: #f4f9fa; color: #23495d; border: 1px solid #d0e0e5; border-radius: 8px; padding: 7px 9px; cursor: pointer; }
+.city-trajectory-actions button:first-child { background: #126f84; color: white; border-color: #126f84; }
+.city-trajectory-player p { margin: 12px 0 0; color: #648292; font-size: 11px; }
+.city-trajectory-player button:focus-visible, .city-trajectory-player select:focus-visible { outline: 2px solid #178eaa; outline-offset: 2px; }
+@media (max-width: 760px) { .city-trajectory-player { bottom: 65px; right: 12px; width: min(350px, calc(100% - 24px)); padding: 12px; } }
+.city-communication-player { width: min(410px, calc(100% - 40px)); max-height: calc(100% - 100px); overflow-y: auto; }
+.city-communication-player .city-trajectory-heading { gap: 7px; }
+.city-communication-player .city-trajectory-heading strong { font-size: 16px; }
+.city-communication-player .city-trajectory-heading span { font-size: 10px; white-space: nowrap; }
+.city-communication-player .city-demo-note { margin-top: 8px; }
+.city-message-card { margin-top: 14px; padding: 12px; border-radius: 10px; border-left: 3px solid #1689a3; background: #eef7f9; }
+.city-message-card.bridge { border-color: #c1783d; background: #fbf3eb; }
+.city-message-card > div { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 11px; }
+.city-message-card > div span { font-size: 9px; color: #6b8290; }
+.city-message-card blockquote { margin: 10px 0; font-size: 12px; line-height: 1.55; }
+.city-message-card p { margin: 0; font-size: 10px; line-height: 1.5; }
+.city-demo-steps { display: grid; gap: 4px; margin-top: 13px; }
+.city-demo-steps button { display: flex; gap: 8px; align-items: center; width: 100%; padding: 7px 8px; color: #6a8190; background: transparent; border: 1px solid transparent; border-radius: 8px; text-align: left; cursor: pointer; }
+.city-demo-steps button span { display: grid; place-items: center; width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #edf2f4; font-size: 10px; }
+.city-demo-steps button b { font-size: 11px; font-weight: 500; }
+.city-demo-steps button small { margin-left: auto; font-size: 9px; }
+.city-demo-steps button.active { background: #e7f5f7; border-color: #acd3dc; color: #166e82; }
+.city-demo-steps button.active span { background: #137f98; color: white; }
+.city-demo-steps button.done { color: #34826d; }
+.city-demo-steps button:hover { border-color: #b5d3db; }
+@media (max-width: 760px) { .city-communication-player { width: min(350px, calc(100% - 24px)); max-height: 52%; bottom: 12px; } }

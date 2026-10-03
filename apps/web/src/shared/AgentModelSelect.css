@@ -1,0 +1,3 @@
+.agent-model-select-row { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.agent-model-select-row .select-control-shell { flex: 1; min-width: 0; }
+.agent-model-select-row .icon-btn { flex: none; }

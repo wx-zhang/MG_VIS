@@ -1,0 +1,50 @@
+{
+  "name": "tyr-ai-web-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.21.0",
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"pnpm --filter @tyr-ai/server dev\" \"pnpm --filter @tyr-ai/web dev\"",
+    "dev:server": "pnpm --filter @tyr-ai/server dev",
+    "dev:web": "pnpm --filter @tyr-ai/web dev",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm --filter @tyr-ai/web build:demo",
+    "build:full": "pnpm -r build",
+    "check": "pnpm typecheck && pnpm build",
+    "start": "node scripts/serve-demo.mjs",
+    "start:full": "node --env-file=.env.production apps/server/dist/index.js",
+    "rebuild:native": "pnpm rebuild better-sqlite3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.5",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^25.0.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "esbuild": "0.27.7",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@tyr-ai/safety": "workspace:*",
+    "better-sqlite3": "^12.5.0",
+    "express": "^5.2.1",
+    "lucide-react": "^0.561.0",
+    "multer": "^2.0.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tsx": "^4.21.0",
+    "ws": "^8.20.0",
+    "zod": "^4.3.6"
+  },
+  "engines": {
+    "node": ">=22.22.0 <23",
+    "pnpm": "10.21.x"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+.local-runtime/
+dist/
+.pnpm-store/
+.vite/
+.DS_Store
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.*.example
+!apps/web/.env.demo
+tyr-data/
+uploads/
+demo-videos/

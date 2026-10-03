@@ -1,0 +1,195 @@
+@media (max-width: 900px) {
+  .auth-page { overflow: auto; }
+  .auth-card.auth-login-card { width: 100%; }
+  .auth-split { min-height: auto; grid-template-columns: 1fr; }
+  .auth-visual-panel { min-height: 280px; padding: 28px; }
+  .auth-form-panel { width: min(420px, calc(100vw - 48px)); padding: 34px 0; }
+  .auth-visual-copy h1, .auth-card.auth-login-card h1 { font-size: 28px; }
+  .auth-input { height: 40px; }
+  .shell { grid-template-columns: 1fr; overflow: hidden; }
+  .side { display: flex; position: fixed; z-index: 50; left: 0; top: 0; bottom: 0; width: min(320px, calc(100vw - 44px)); max-width: 100%; height: var(--app-viewport-height, 100dvh); box-shadow: 18px 0 42px rgb(15 23 42 / 18%); transform: translateX(-104%); transition: transform .18s ease; }
+  .shell.mobile-nav-open .side { transform: translateX(0); }
+  .mobile-sidebar-backdrop { display: block; position: fixed; inset: 0; z-index: 45; border: 0; padding: 0; background: rgb(15 23 42 / 38%); }
+  .task-board { grid-template-columns: 1fr; }
+  .agent-profile-grid, .agent-detail-grid { grid-template-columns: 1fr; }
+  .runtime-resource-grant-row { align-items: flex-start; flex-direction: column; }
+  .runtime-resource-grant-scope-chip { max-width: 100%; }
+  .runtime-resource-grant-row-actions, .runtime-resource-grant-actions { justify-content: flex-start; }
+  .permission-summary { align-items: stretch; flex-direction: column; }
+  .permission-presets { grid-template-columns: 1fr; }
+  .permission-capability-grid { grid-template-columns: 1fr; }
+  .permission-presets button { min-height: 68px; padding: 12px 14px; }
+  .permission-block-head, .permission-row { padding-left: 14px; padding-right: 14px; }
+  .permission-actions, .activity-pager { flex-wrap: wrap; }
+  .activity-pager span { flex: 1 0 100%; }
+  .reminder-summary { grid-template-columns: 1fr; }
+  .reminder-next { text-align: left; }
+  .agent-detail-card { border-right: 0; border-bottom: 1px solid #ddd; }
+  .agent-detail-card:last-child { border-bottom: 0; }
+  .human-profile-grid, .human-fact-grid, .management-metrics { grid-template-columns: 1fr; }
+  .human-profile-grid .info-block { border-right: 0; border-bottom: 1px solid #ddd; }
+  .human-profile-grid .info-block:last-child { border-bottom: 0; }
+  .incoming-invite-row { grid-template-columns: 34px minmax(0, 1fr); }
+  .incoming-invite-row .btn { grid-column: 2; justify-self: start; }
+  .topbar { padding: 0 14px; gap: 12px; }
+  .top-mobile-menu-button { display: inline-grid; }
+  .top-actions { flex-wrap: nowrap; }
+  .chat-session-header { align-items: stretch; flex-direction: column; padding: 12px 14px; }
+  .chat-subject { width: 100%; }
+  .chat-subject-copy p { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .chat-subtitle-row { width: 100%; }
+  .chat-subtitle-text { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .dm-conversation-trigger { max-width: min(260px, calc(100vw - 92px)); }
+  .chat-session-tools { width: 100%; max-width: 100%; align-self: stretch; justify-content: flex-start; }
+  .chat-session-actions { width: 100%; justify-content: flex-start; max-width: 100%; overflow-x: auto; padding-bottom: 2px; }
+  .chat-tabs-group { width: 100%; max-width: 100%; }
+  .chat-tabs-group .chat-workspace-tabs { flex: 1 1 auto; width: auto; min-width: 0; }
+  .chat-agent-detail-button { flex: 0 0 var(--control-height); }
+  .chat-workspace-tabs { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+  .chat-workspace.with-thread { grid-template-columns: minmax(0, 1fr); }
+  .thread-panel-resizer { display: none; }
+  .task-thread-drawer { width: 100%; min-width: 0; max-width: none; }
+  .task-thread-drawer-backdrop { display: none; }
+  .task-thread-drawer-shell.inline { position: absolute; inset: 0; z-index: 35; pointer-events: none; }
+  .task-thread-drawer-shell.inline .task-thread-drawer-backdrop { display: block; }
+  .task-thread-drawer-shell.inline .task-thread-drawer { box-shadow: -18px 0 42px rgb(15 23 42 / 16%); animation: task-thread-drawer-in .16s ease-out; }
+  .channel-task-surface.with-thread { display: flex; flex-direction: column; }
+  .channel-task-surface.with-thread .channel-task-toolbar,
+  .channel-task-surface.with-thread .task-workspace,
+  .channel-task-surface.with-thread .channel-task-empty,
+  .channel-task-surface.with-thread .task-thread-drawer-shell.inline { grid-column: auto; grid-row: auto; }
+  .task-dashboard-head { align-items: stretch; flex-direction: column; padding: 14px; }
+  .task-dashboard-title { align-items: flex-start; }
+  .task-dashboard-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .task-toolbar { align-items: stretch; flex-direction: column; padding: 9px 14px; }
+  .devices-layout { padding: 14px; }
+  .devices-page-head { align-items: stretch; flex-direction: column; }
+  .devices-grid { grid-template-columns: 1fr; }
+  .device-detail-columns { grid-template-columns: 1fr; }
+  .channel-task-toolbar { padding: 9px 14px; }
+  .task-filter-bar { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+  .task-view-toggle { width: max-content; max-width: 100%; overflow-x: auto; }
+  .task-filter-menu { max-width: calc(100vw - 28px); }
+  .task-list-view { padding: 14px; }
+  .task-column { max-height: none; }
+  .message-list { padding: 14px; }
+  .message { max-width: 96%; }
+  .message-execution-summary-block { width: 100%; }
+  .message-route-action-panel { grid-template-columns: 1fr; align-items: stretch; gap: 9px; }
+  .message-route-action-buttons { width: 100%; }
+  .message-route-action-buttons button { flex: 1 1 0; justify-content: center; }
+  .device-snapshot-card { grid-template-columns: 58px minmax(0, 1fr); align-items: start; gap: 8px; padding: 8px; }
+  .device-snapshot-action { grid-column: 2; justify-self: start; width: max-content; }
+  .composer-row { grid-template-columns: 44px minmax(0, 1fr); gap: 8px; padding: 8px 14px 10px; }
+  .composer-running-guidance { padding: 6px 10px 0 14px; }
+  .composer-attachment-preview-list { padding: 8px 14px 0; }
+  .mention-menu { left: 14px; width: min(360px, calc(100vw - 28px)); max-width: calc(100% - 28px); max-height: min(220px, calc(100dvh - 172px)); }
+  .composer-slash-menu { max-height: min(220px, calc(100dvh - 172px)); }
+  .composer-floating-menu { width: min(360px, calc(100vw - 28px)); max-height: min(220px, calc(100dvh - 172px)); }
+  .composer-inline-editor { grid-column: 2; min-height: 44px; font-size: 16px; line-height: 21px; scroll-margin-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .composer-row .icon-btn { width: 44px; height: 44px; min-height: 44px; }
+  .composer-row textarea { grid-column: auto; width: 100%; min-width: 0; min-height: 34px; font-size: 16px; line-height: 20px; scroll-margin-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .composer-row .check { grid-column: 2; grid-row: 2; justify-self: start; min-height: 44px; }
+  .composer-row .btn.primary { grid-column: 2; grid-row: 2; justify-self: end; height: 44px; min-height: 44px; }
+  .thread-composer .composer-row { grid-template-columns: 36px minmax(0, 1fr) 36px; padding: 10px 12px; }
+  .thread-composer .composer-row textarea, .thread-composer .composer-row .btn.primary { grid-column: auto; justify-self: auto; }
+  .modal-choice { grid-template-columns: 1fr; }
+  .create-agent-form-grid { grid-template-columns: 1fr; }
+  .create-agent-advanced-grid { grid-template-columns: 1fr; }
+  .modal-backdrop { padding: 12px; }
+  .modal { width: min(520px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 18px; }
+  .modal-actions { flex-wrap: wrap; justify-content: flex-start; }
+  .modal-actions .btn { flex: 1 1 auto; }
+  .template-form-modal { width: calc(100vw - 24px); max-height: calc(100dvh - 24px); }
+  .template-form-modal .modal-head { padding: 16px 18px; }
+  .template-form-content { max-height: calc(100dvh - 88px); min-height: 0; }
+  .template-dialog-content { max-height: calc(100dvh - 88px); min-height: 0; }
+  .template-form-grid { min-height: 0; grid-template-columns: 1fr; padding: 18px; }
+  .template-dialog-body { min-height: 0; padding: 18px; }
+  .template-form-actions { padding: 14px 18px; }
+  .template-dialog-actions { padding: 14px 18px; }
+  .template-form-modal .member-row.with-controls { grid-template-columns: 30px minmax(0, 1fr); }
+  .template-form-modal .member-row.compact.agent-row { grid-template-columns: 28px minmax(0, 1fr); }
+  .template-form-modal .member-row.compact.human-row { grid-template-columns: 28px minmax(0, 1fr); }
+  .template-form-modal .member-row.with-controls .dot { justify-self: end; }
+  .template-form-modal .member-controls { grid-column: 1 / -1; justify-content: flex-start; }
+  .template-form-modal .member-row.compact.with-controls .member-status-set, .template-form-modal .member-row.compact.with-controls .member-detail-text, .template-form-modal .member-row.compact.with-controls .member-toggle-cell, .template-form-modal .member-row.compact.with-controls .member-action-cell { grid-column: 2; justify-self: start; }
+  .template-form-modal .member-row.compact.with-controls .member-status-set { flex-wrap: wrap; }
+  .template-form-modal .member-action-cell { min-width: 0; }
+  .template-form-modal .member-candidate-toolbar { grid-template-columns: 1fr; }
+  .template-form-modal .member-candidate-row { grid-template-columns: 28px minmax(0, 1fr); }
+  .template-form-modal .member-candidate-row .member-detail-text, .template-form-modal .member-candidate-row .member-action-cell { grid-column: 2; justify-self: start; }
+  .template-form-modal .grant-scope-list { align-items: flex-start; }
+  .template-form-modal .attachment-preview-body { max-height: 52dvh; }
+  .create-agent-modal { width: calc(100vw - 24px); max-height: calc(100dvh - 24px); }
+  .create-agent-modal .modal-head { padding: 16px 18px; }
+  .create-agent-form { max-height: calc(100dvh - 88px); min-height: 0; }
+  .create-agent-form-grid { min-height: 0; padding: 18px; }
+  .create-agent-actions { padding: 14px 18px; }
+  .settings-row, .join-grid, .onboarding-card { grid-template-columns: 1fr; }
+  .settings-page, .topology-grid, .permissions-view, .reminders-view, .workspace-view, .channel-files-view { padding: 16px 14px 64px; }
+  .account-profile-grid, .settings-summary-grid, .topology-metrics, .topology-computer-grid, .topology-node-list, .topology-node-list.compact { grid-template-columns: 1fr; }
+  .account-card-head, .account-logout-row, .session-card, .danger-row, .role-action-head, .usage-row, .connected-account, .human-hero, .agent-profile-head { align-items: stretch; flex-direction: column; }
+  .invite-row, .invite-row.compact, .file-row, .channel-file-row { grid-template-columns: minmax(0, 1fr); }
+  .topology-routing-shell { grid-template-columns: 1fr; position: relative; overflow: hidden; }
+  .topology-inspector { display: flex; position: fixed; z-index: 42; top: 0; right: 0; bottom: 0; width: min(420px, calc(100vw - 32px)); min-width: 0; max-width: none; height: 100dvh; border-left: 1px solid #d8dee8; box-shadow: -18px 0 42px rgb(15 23 42 / 16%); transform: translateX(104%); transition: transform .18s ease; }
+  .topology-routing-shell.topology-inspector-open .topology-inspector { transform: translateX(0); }
+  .topology-inspector-backdrop { display: block; position: fixed; inset: 0; z-index: 40; border: 0; padding: 0; background: rgb(15 23 42 / 32%); }
+  .topology-inspector-collapse { display: none; }
+  .topology-inspector-close { display: inline-grid; place-items: center; position: absolute; top: 12px; right: 12px; z-index: 5; width: 30px; height: 30px; min-height: 30px; border: 1px solid #d8dee8; border-radius: 8px; background: #ffffff; color: #52627a; box-shadow: 0 8px 18px rgb(15 23 42 / 10%); }
+  .topology-inspector-resizer { display: none; }
+  .topology-routing-main { padding: 22px 18px 28px; }
+  .topology-routing-head { flex-direction: column; }
+  .sharing-form { grid-template-columns: 1fr; }
+  .notification-head { grid-template-columns: 1fr; }
+  .danger-settings { align-items: stretch; flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .auth-card.auth-login-card { justify-self: stretch; width: 100%; }
+  .auth-visual-panel { display: none; }
+  .auth-form-panel { width: min(420px, calc(100vw - 44px)); padding: 30px 0; }
+  .top-title h1 { font-size: 16px; }
+  .topbar { min-height: 56px; padding: 0 10px; gap: 8px; }
+  .top-actions { gap: 6px; }
+  .top-system-actions, .top-actions-divider, .top-logout-button { display: none; }
+  .top-utility-dock { height: 34px; padding: 2px; }
+  .top-utility-button { width: 28px; height: 28px; }
+  .top-mobile-menu-button, .top-avatar-button { width: 32px; height: 32px; }
+  .top-account-control { margin-left: 0; }
+  .pending-approval-row { grid-template-columns: 1fr; }
+  .pending-approval-actions { justify-content: flex-start; }
+  .chat-workspace-tabs button { padding: 0 9px; }
+  .chat-subject { gap: 9px; }
+  .chat-subject-icon { width: 36px; height: 36px; }
+  .chat-title-stack h2 { font-size: 17px; }
+  .message { max-width: 100%; gap: 8px; }
+  .message > .avatar { width: 28px; height: 28px; }
+  .message-affordance-row:has(.message-execution-summary-block) { width: 100%; }
+  .message-execution-summary-block { min-width: 0; }
+  .message-execution-summary-head { grid-template-columns: 24px minmax(0, 1fr) 24px; }
+  .message-execution-summary-progress { grid-column: 2; grid-row: 2; justify-self: start; padding-bottom: 2px; }
+  .message-execution-summary-toggle { grid-column: 3; grid-row: 1 / span 2; }
+  .message-execution-summary-row { padding-left: 10px; }
+  .message-execution-summary-row-main { grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
+  .message-execution-status { grid-column: 1; justify-self: start; padding-left: 15px; }
+  .message-execution-summary-row-main > b { grid-column: 2; grid-row: 1 / span 2; }
+  .task-dashboard-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .task-dashboard-metrics span { min-height: 40px; padding: 7px 6px; text-align: center; }
+  .task-dashboard-metrics b { font-size: 16px; }
+  .task-dashboard-metrics small { font-size: 8px; letter-spacing: .35px; }
+  .task-filter-bar { flex-wrap: wrap; overflow-x: visible; }
+  .task-filter-bar > .btn.small, .task-toolbar .filter-button.inline { flex: 1 1 calc(50% - 6px); justify-content: center; }
+  .task-view-toggle { width: 100%; }
+  .task-view-toggle .btn.small { flex: 1 1 0; }
+  .composer-row { grid-template-columns: 44px minmax(0, 1fr); }
+  .composer-row .icon-btn { width: 44px; height: 44px; min-height: 44px; }
+  .modal-actions .btn { width: 100%; }
+  .account-card-head > span { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topology-inspector { transition: none; }
+}
+
+/* End responsive overrides. */
