@@ -271,8 +271,9 @@ const HOME_CAMERA = new THREE.Vector3(25, 23, 29);
 const HOME_TARGET = new THREE.Vector3(0, 0, 0);
 const MIN_ORBIT_POLAR_ANGLE = Math.PI * 0.16;
 const MAX_ORBIT_POLAR_ANGLE = Math.PI * 0.48;
-const MIN_SCENE_ZOOM = 7;
-const MAX_SCENE_ZOOM = 68;
+const FILM_CAPTURE_SCALE = import.meta.env.DEV && new URLSearchParams(window.location.search).get('film-resolution') === '4k' ? 2 : 1;
+const MIN_SCENE_ZOOM = 7 * FILM_CAPTURE_SCALE;
+const MAX_SCENE_ZOOM = 68 * FILM_CAPTURE_SCALE;
 const ROOM_WIDTH = 5.35;
 const ROOM_DEPTH = 4.55;
 const ROOM_GAP = 0.78;
@@ -478,6 +479,15 @@ const DEVICE_THEMES: DeviceVisualTheme[] = [
 
 function useReducedSceneMotion(): boolean {
   return useMemo(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches, []);
+}
+
+// DEV film playback only; ordinary workspace movement keeps its normal speed.
+function filmVisitDelta(delta: number): number {
+  if (!import.meta.env.DEV || typeof window === 'undefined') return delta;
+  const query = new URLSearchParams(window.location.search);
+  if (query.get('film') !== 'town-payment') return delta;
+  const speed = Number(query.get('film-speed') ?? 1);
+  return delta * (Number.isFinite(speed) ? Math.min(1, Math.max(0.1, speed)) : 1);
 }
 
 function useDocumentVisible(): boolean {
@@ -1219,7 +1229,7 @@ const WorkspaceSpatialSceneCanvasComponent = forwardRef<WorkspaceSpatialSceneHan
   onInteract?: () => void;
 }>(function WorkspaceSpatialSceneCanvas({ scene, selection, focusedRoomKey, ambientAssignmentsOverride, presentation = "campus", onSelect, onInteract }, ref) {
   const layout = useMemo(() => buildSceneLayout(scene, presentation !== "campus"), [scene, presentation]);
-  const defaultSceneZoom = layout.fitZoom * (presentation === "building" ? 0.64 : presentation === "connections" ? 0.94 : 1);
+  const defaultSceneZoom = layout.fitZoom * (presentation === "building" ? 0.64 : presentation === "connections" ? 0.94 : 1) * FILM_CAPTURE_SCALE;
   const fitRatioRef = useRef(1);
   const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
   const controlsRef = useRef<ComponentRef<typeof OrbitControls>>(null);
@@ -1580,7 +1590,7 @@ const WorkspaceSpatialSceneCanvasComponent = forwardRef<WorkspaceSpatialSceneHan
     if (!camera || !controls) return;
     const offset = camera.position.clone().sub(controls.target);
     camera.position.copy(target).add(offset);
-    camera.zoom = zoom;
+    camera.zoom = zoom * FILM_CAPTURE_SCALE;
     camera.updateProjectionMatrix();
     controls.target.copy(target);
     controls.update();
@@ -1591,14 +1601,14 @@ const WorkspaceSpatialSceneCanvasComponent = forwardRef<WorkspaceSpatialSceneHan
     zoomIn() {
       const camera = cameraRef.current;
       if (!camera) return;
-      camera.zoom = Math.min(MAX_SCENE_ZOOM, camera.zoom + 4);
+      camera.zoom = Math.min(MAX_SCENE_ZOOM, camera.zoom + 4 * FILM_CAPTURE_SCALE);
       camera.updateProjectionMatrix();
       invalidateRef.current();
     },
     zoomOut() {
       const camera = cameraRef.current;
       if (!camera) return;
-      camera.zoom = Math.max(MIN_SCENE_ZOOM, camera.zoom - 4);
+      camera.zoom = Math.max(MIN_SCENE_ZOOM, camera.zoom - 4 * FILM_CAPTURE_SCALE);
       camera.updateProjectionMatrix();
       invalidateRef.current();
     },
@@ -2293,6 +2303,19 @@ function WorkspaceRimLabel({ workspace, theme, selected, hovered, workspaceKey, 
         color="#173a42"
         position={[0, 0.008, 0.13]}
       />
+      {import.meta.env.DEV && new URLSearchParams(window.location.search).get("film-resolution") === "4k" && (
+        <Html position={[0, 0.85, 0]} center zIndexRange={[9000, 8000]} style={{ pointerEvents: "none" }}>
+          <div data-film-workspace-label={workspace.name} style={{
+            minWidth: 230, padding: "16px 30px", borderRadius: 18,
+            background: "#fbfaf7", border: `4px solid ${theme.accent}`,
+            boxShadow: "0 5px 18px #26324824", color: "#173a42",
+            fontFamily: "Arial", textAlign: "center", whiteSpace: "nowrap"
+          }}>
+            <strong style={{ display: "block", fontSize: 50, lineHeight: 1.15 }}>{workspace.name}</strong>
+            <span style={{ display: "block", fontSize: 22, marginTop: 7, letterSpacing: 2 }}>WORKSPACE</span>
+          </div>
+        </Html>
+      )}
       {([-1, 1] as const).map((side) => (
         <mesh key={side} position={[side * (labelWidth / 2 - 0.23), 0, 0.136]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.046, 0.046, 0.03, 16]} />
@@ -5298,7 +5321,7 @@ function HumanJourneyWalker({ journey, route, initialState, visualStates, onStag
     if (!root) return;
     const previous = stateRef.current;
     const next = workspaceSpatialHumanJourneyFrame(previous, {
-      deltaSeconds: delta,
+      deltaSeconds: filmVisitDelta(delta),
       routeLength: geometry.totalLength,
       reduceMotion
     });
@@ -5428,7 +5451,7 @@ function BridgeJourneyWalker({
     if (!root) return;
     const previous = stateRef.current;
     const next = workspaceSpatialVisitFrame(previous, journey, {
-      nowMs: Date.now(), deltaSeconds: delta, routeLength: routeGeometry.totalLength, reduceMotion,
+      nowMs: Date.now(), deltaSeconds: filmVisitDelta(delta), routeLength: routeGeometry.totalLength, reduceMotion,
       exchangeDurationMs: localVisit ? WORKSPACE_SPATIAL_LOCAL_VISIT_HANDOFF_MS : WORKSPACE_SPATIAL_VISIT_HANDOFF_MS,
       canReceive: workspaceSpatialVisitCanReceive(previous, visitStates),
       holdAtHome: Boolean(choreography.exchanges.get(`visit:${journey.id}`)),

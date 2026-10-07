@@ -63,6 +63,24 @@ export function OperatorCityMap(props: Props) {
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   useEffect(() => {
+    if (!import.meta.env.DEV || new URLSearchParams(window.location.search).get('film') !== 'town-overview') return;
+    const receive = (event: Event) => {
+      const detail = (event as CustomEvent).detail;
+      const ids: string[] = Array.isArray(detail?.ids) ? detail.ids.filter((id: unknown) => typeof id === 'string' && props.overview.workspaces.some(workspace => workspace.serverId === id)) : [];
+      layersState.current = { ...layersState.current, selected: ids.at(-1) ?? '', active: ids };
+      setFocusedWorkspace(detail?.connections ? ids.at(-1) ?? '' : '');
+      const map = mapRef.current;
+      if (map && detail?.enter && ids.length) {
+        const location = cityLocations(props.overview.workspaces).find(item => item.id === ids.at(-1));
+        if (location) map.easeTo({ center: [location.longitude, location.latitude], zoom: 17.9 + (new URLSearchParams(window.location.search).get('film-resolution') === '4k' ? 1 : 0), pitch: 55, duration: 950 });
+      }
+      map?.triggerRepaint();
+    };
+    window.addEventListener('town-overview-film', receive);
+    return () => window.removeEventListener('town-overview-film', receive);
+  }, [props.overview]);
+
+  useEffect(() => {
     if (!host.current) return;
     let removed = false;
     let detailGeneration = 0;
@@ -475,5 +493,3 @@ export function OperatorCityMap(props: Props) {
     </div>
   );
 }
-
-
